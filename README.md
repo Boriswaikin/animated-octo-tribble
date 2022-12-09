@@ -21,6 +21,7 @@ Put the jar file to the desktop and click it. No specific argument required to r
 #### How to use the program:
 
 When open the program, the view of the program named "Primates" will be shown
+
 1.The first row is the monkey's input. Below is the regulation of inputting the attribute
 a.Name: Please input the valid name of monkey. Empty name or the name including non alphabets are not allowed
 b.Species: Please strictly follow the predefined species as below to input, All letters must be in capital.
