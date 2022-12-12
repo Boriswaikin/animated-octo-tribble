@@ -12,9 +12,9 @@ Below is the feature of the program:
 - The monkey's name is empty
 - The monkey's name contains non alphabets
 - The name of monkey already exist in the isolation or enclosure
-- Size input is less than or equal to zero
-- age input is less than or equal to zero
-- weight input is less than or equal to zero
+- The size input is less than or equal to zero
+- The age input is less than or equal to zero
+- The weight input is less than or equal to zero
 2. The new monkey being registered would be put in isolation with its picture and the name shown. 
 2.1 Message would be pop out to warn the user if adding monkey to a full isolation.
 3. For the monkey living in the isloation, its name would be shown in the combobox. It allows us to select the monkey to be moved to enclosure. 
@@ -148,4 +148,14 @@ It implies if three monkeys are registered and two are moved from isolation to e
 When the jar file is closed and is reopened, all monkeys record would be disappeared and we need to re-register the monkeys again.
 
 #### Citation:
+[1] Java Swing How to - Add custom Java objects to JComboBox
+http://www.java2s.com/Tutorials/Java/Swing_How_to/JComboBox/Add_custom_Java_objects_to_JComboBox.htm (accessed 9 Dec 2022)
 
+[2] How to Use BoxLayout
+https://docs.oracle.com/javase/tutorial/uiswing/layout/box.html (accessed 9 Dec 2022)
+
+[3] How to add multiple panels in JFrame in Java
+https://www.codespeedy.com/how-to-add-multiple-panels-in-jframe-in-java/ (accessed 9 Dec 2022)
+
+[4] How to resize JLabel ImageIcon?
+https://stackoverflow.com/questions/6714045/how-to-resize-jlabel-imageicon (accessed 9 Dec 2022)
