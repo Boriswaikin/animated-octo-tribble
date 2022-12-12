@@ -25,7 +25,9 @@ Below is the feature of the program:
 
 #### How to run:
 
-Put the jar file to the desktop and click it. No specific argument required to run the jar file 
+1.Put the jar file to the desktop.
+2.Right click, choose "Open With", choose "JavaLauncher(default)".
+3.If asked are you sure you want to open it, click "Open".
 
 #### How to use the program:
 
