@@ -38,7 +38,7 @@ c.Select sex of the monkey
 d.Size: Please input a valid numeric value. The value has to be greater than zero.
 e.Weight: Please input a valid numeric value. The value has to be greater than zero.
 f.Age: Please input a valid numeric value. The value has to be greater than zero.
-g.Select favourite food of the monkey
+g.Select favourite food of the monkey.
 Below is one of the example to input all the valid attributes of the monkey:
 Name: Abu 
 Species: DRILL
@@ -49,7 +49,7 @@ Age: 16.2342
 Food: EGGS
 
 2. The second row has two buttons and one combobox in between. The first button named "Register Monkey", it allows us to put the monkey to the isolation box once all the valid attibutes of monkey are input. After you clicked the button "Register Monkey", the monkey with picture and its name would be shown in the isolation box. The combobox in between the buttons allow us to select the monkey that is in the isolation. Once the monkey is selected, then we can click the button next to it, which is named "Move to Enclosure", it allows us to move the monkey from the isolation to the speceifc row of the enclosure for species (the monkey will be automatically moved to correct row according to the monkey's species)
-3. The third row has one combobox and two buttons. The combox box has the options of eight species. We can select the species and click the button next to it, which named "Specific Enclosure List" to get the list of the monkeys in the specific enclosures that we chose. The list of the monkeys contain the monkey's name, sex and its favourite food. If multiple monkeys are in the enclosure we chose, the monkeys would be sorted in alphabetical order of their name. The last button in the third row is named "Sanctuary List", it allows us to get the list of the names of the monkeys that in the sanctuary. The name list are sorted in alphabetical order.
+4. The third row has one combobox and two buttons. The combox box has the options of eight species. We can select the species and click the button next to it, which named "Specific Enclosure List" to get the list of the monkeys in the specific enclosures that we chose. The list of the monkeys contain the monkey's name, sex and its favourite food. If multiple monkeys are in the enclosure we chose, the monkeys would be sorted in alphabetical order of their name. The last button in the third row is named "Sanctuary List", it allows us to get the list of the names of the monkeys that in the sanctuary. The name list are sorted in alphabetical order.
 
 #### Design/Model Changes:
 The original design in Sanctuary class:
@@ -80,7 +80,7 @@ As the controller is supposed to talk to one model (sanctuary) only. So new meth
 1. public Monkey createMonkey(String,Species,Sex,String,String,String,Food): to call the constructor in monkey class to create a monkey object
 2. public String getMonkeyName(Monkey): to call the getName method in the monkey class by inputting the monkey object as argument. It would return the name of monkey.
 3. public int getMonkeySpeciesValue(Monkey)： to call the getSpeciesValue method in the monkey class by inputting the monkey object as argument. It would return the predefined species value (int) of the monkey.
-4. public void setMonkeyHealthiness(Monkey): to call the setHealthiness method in the monkey class by inputting the monkey object as argument. It would change the monkey to be healthy and move it from isolation to enclosure.
+4. public void setMonkeyHealthiness(Monkey): to call the setHealthiness method in the monkey class by inputting the monkey object as argument. It would change the monkey to be healthy and move the monkey from isolation to enclosure.
 
 As the user is able to select the species, sex and favourite food in the comboBox when creating a monkey and be able to select the species of monkey for the enclosure list. Three methods are created in sanctuary class:
 5. public Species[] getAllSpecies(): to return an array to store all the monkeys' species
@@ -139,13 +139,15 @@ As comboBox need to display the name of the monkey that in isolation for user to
 
 
 #### Assumption:
-1. Same name of monkey in the sanctuary is not allowed.
-2. The monkeys who live in the enclosure would live forever.
+1. The monkey is unhealthy at the time when he/she is registered.
+2. Same name of monkey in the sanctuary is not allowed.
+3. The monkeys living in the enclosure would live forever.
 
 #### Limitation:
-The is no memoization on the monkeys in the sanctuary. 
+1. The is no memoization on the monkeys in the sanctuary. 
 It implies if three monkeys are registered and two are moved from isolation to enclosure. 
 When the jar file is closed and is reopened, all monkeys record would be disappeared and we need to re-register the monkeys again.
+2, In the isolation view and enclosure view, only the monkey's picture and monkey's name is shown. No other attributes of the monkey are provided. 
 
 #### Citation:
 [1] Java Swing How to - Add custom Java objects to JComboBox
