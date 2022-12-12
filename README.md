@@ -135,7 +135,7 @@ method:
 + toString(): String
 
 Explanation of a new method created in Sanctuary class:
-As comboBox need to display the name of the monkey that in isolation for user to move it to enclosure, so toString() method is created to return the string representation: "Name: monkey's name"
+As comboBox need to display the name of the monkey that in isolation for user to move it to enclosure, so toString() method is created to return the string representation: "Name: monkey's name".
 
 
 #### Assumption:
