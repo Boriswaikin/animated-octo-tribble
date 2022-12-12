@@ -8,11 +8,20 @@
 
 Below is the feature of the program:
 1. Register the monkey by inputting the monkey's Name, Species, Sex, Size, Weight, Age and its favourite food. Not require to input the healthiness of the monkey as it is defaulted to be unhealthy. 
+1.1 Message would be pop out to warn the user if there is invalid input when creating a monkey, for example:
+- The monkey's name is empty
+- The monkey's name contains non alphabets
+- The name of monkey already exist in the isolation or enclosure
+- Size input is less than or equal to zero
+- age input is less than or equal to zero
+- weight input is less than or equal to zero
 2. The new monkey being registered would be put in isolation with its picture and the name shown. 
+2.1 Message would be pop out to warn the user if adding monkey to a full isolation.
 3. For the monkey living in the isloation, its name would be shown in the combobox. It allows us to select the monkey to be moved to enclosure. 
-3. Able to move the selected monkey to the enclosure. Once the monkey is moved to enclosure, the monkey would be taken away from the isolation and moved to be shown in the row (enclosure for specific species) according to its species.
-4. Able to select the list of every enclosure by choosing the specific species.
-5. Able to list out the names of the monkeys living in sanctuary in alphabetical order.
+4. Able to move the selected monkey to the enclosure. Once the monkey is moved to enclosure, the monkey would be taken away from the isolation and moved to be shown in the row (enclosure for specific species) according to its species.
+4.1 Message would be pop out to warn the uset if no monkey is availale to be moved from isolation to enclosure. 
+5. Able to select the list of every enclosure by choosing the specific species.
+6. Able to list out the names of the monkeys living in sanctuary in alphabetical order.
 
 #### How to run:
 
@@ -24,29 +33,12 @@ When open the program, the view of the program named "Primates" will be shown
 
 1.The first row is the monkey's input. Below is the regulation of inputting the attribute
 a.Name: Please input the valid name of monkey. Empty name or the name including non alphabets are not allowed
-b.Species: Please strictly follow the predefined species as below to input, All letters must be in capital.
-DRILL
-GUEREZA
-HOWLER
-MANGABEY
-SAKI
-SPIDER
-SQUIRREL
-TAMARIN
-c.Sex: Please strictly follow the predefined Sex as below to input, All letters must be in capital.
-M
-F
+b.Select species of the monkey
+c.Select sex of the monkey
 d.Size: Please input a valid numeric value. The value has to be greater than zero.
 e.Weight: Please input a valid numeric value. The value has to be greater than zero.
 f.Age: Please input a valid numeric value. The value has to be greater than zero.
-g. Food: Please strictly follow the predefined Food as below to input, All letters must be in capital.
-EGGS
-FRUITS
-INSECTS
-LEAVES
-NUTS
-SEEDS
-TREESAP
+g.Select favourite food of the monkey
 Below is one of the example to input all the valid attributes of the monkey:
 Name: Abu 
 Species: DRILL
@@ -60,6 +52,90 @@ Food: EGGS
 3. The third row has one combobox and two buttons. The combox box has the options of eight species. We can select the species and click the button next to it, which named "Specific Enclosure List" to get the list of the monkeys in the specific enclosures that we chose. The list of the monkeys contain the monkey's name, sex and its favourite food. If multiple monkeys are in the enclosure we chose, the monkeys would be sorted in alphabetical order of their name. The last button in the third row is named "Sanctuary List", it allows us to get the list of the names of the monkeys that in the sanctuary. The name list are sorted in alphabetical order.
 
 #### Design/Model Changes:
+The original design in Sanctuary class:
+parameter: -enclosure: EnclosureHabitat, -isolation: IsolationHabitat
+method: 
++ getIsolation(): IsolationHabitat
++ getEnclosure(): EnclosureHabitat
++ listAllMonkey(): String
+
+
+The new design in Sanctuary class:
+parameter: -enclosure: EnclosureHabitat, -isolation: IsolationHabitat
+method:
++ getIsolation(): IsolationHabitat
++ getEnclosure(): EnclosureHabitat
++ listAllMonkey(): String
++ createMonkey(String,Species,Sex,String,String,String,Food) : Monkey
++ getMonkeyName(Monkey) : String
++ getMonkeySpeciesValue(Monkey) : int
++ setMonkeyHealthiness(Monkey) : void
++ getAllSpecies() : Species[]
++ getAllSex() : Sex[]
++ getAllFood() : Food[]
+
+
+Explanation of new method created in Sanctuary class:
+As the controller is supposed to talk to one model (sanctuary) only. So new methods are created in sanctuary class to for the purpose of calling constructor/method in monkey class:
+1. public Monkey createMonkey(String,Species,Sex,String,String,String,Food): to call the constructor in monkey class to create a monkey object
+2. public String getMonkeyName(Monkey): to call the getName method in the monkey class by inputting the monkey object as argument. It would return the name of monkey.
+3. public int getMonkeySpeciesValue(Monkey)： to call the getSpeciesValue method in the monkey class by inputting the monkey object as argument. It would return the predefined species value (int) of the monkey.
+4. public void setMonkeyHealthiness(Monkey): to call the setHealthiness method in the monkey class by inputting the monkey object as argument. It would change the monkey to be healthy and move it from isolation to enclosure.
+
+As the user is able to select the species, sex and favourite food in the comboBox when creating a monkey and be able to select the species of monkey for the enclosure list. Three methods are created in sanctuary class:
+5. public Species[] getAllSpecies(): to return an array to store all the monkeys' species
+6. public Sex[] getAllSex(): to return an array to store all the monkeys' sex
+7. public Food[] getAllFood(): to return an array to store all the monkeys' favourite food
+
+
+The original design in Monkey class:
+parameter: 
+-name: String
+-species: Species
+-sex: Sex
+-size: double
+-weight: double
+-age: double
+-food : Food
+-Healthiness: boolean
+method: 
++ getName(): String
++ getSpecies(): Species
++ getSpeciesValue(): int
++ getSex(): Sex
++ getSize(): double
++ getWeight(): double
++ getAge(): double
++ getFood(): Food
++ getHealthiness(): boolean
++ setHealthiness(Sanctuary): void
+
+
+The new design in Monkey class:
+parameter: 
+-name: String
+-species: Species
+-sex: Sex
+-size: double
+-weight: double
+-age: double
+-food : Food
+-Healthiness: boolean
+method: 
++ getName(): String
++ getSpecies(): Species
++ getSpeciesValue(): int
++ getSex(): Sex
++ getSize(): double
++ getWeight(): double
++ getAge(): double
++ getFood(): Food
++ getHealthiness(): boolean
++ setHealthiness(Sanctuary): void
++ toString(): String
+
+Explanation of a new method created in Sanctuary class:
+As comboBox need to display the name of the monkey that in isolation for user to move it to enclosure, so toString() method is created to return the string representation: "Name: monkey's name"
 
 
 #### Assumption:
